@@ -25,6 +25,9 @@ inputs:
   destination_branch_create:
     description: 'Destination branch to create for this commit'
     required: false
+  version_tag:
+    description: 'The tag'
+    required: false
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -35,6 +38,7 @@ runs:
     - ${{ inputs.user-email }}
     - ${{ inputs.destination-branch }}
     - ${{ inputs.destination-branch-create }}
+    - ${{ inputs.version_tag }}
     - ${{ inputs.commit_msg }}
 branding:
   icon: 'git-commit'

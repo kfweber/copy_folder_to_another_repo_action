@@ -45,6 +45,15 @@ then
   git commit --message "$INPUT_COMMIT_MSG"
   echo "Pushing git commit"
   git push -u origin HEAD:$OUTPUT_BRANCH
+
 else
   echo "No changes detected"
 fi
+
+if [ ! -z "$INPUT_VERSION_TAG" ]
+  then
+    git tag -a $INPUT_VERSION_TAG -m "$INPUT_VERSION_TAG"
+
+    echo "Pushing tag"
+    git push -u origin $INPUT_VERSION_TAG
+fi  

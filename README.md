@@ -24,6 +24,7 @@ This GitHub Action copies a folder from the current repository to a location in 
             user_email: 'devin.nemec@gmail.com'
             user_name: 'dmnemec'
             commit_msg: '[GHA] Update the test files.'
+            version_tag: 'v1.0.0'
 
 # Variables
 * **source_folder:** The folder to be moved.
@@ -34,6 +35,7 @@ This GitHub Action copies a folder from the current repository to a location in 
 * **destination_branch:** [optional] The branch of the destination repo to base the changes on and push to (defaults to master).
 * **destination_branch_create:** [optional] The branch the changes should be pushed to; defaults to commiting to `destination_branch`; is useful for creating PRs
 * **commit_msg:** [optional] The commit message to use.
+* **version_tag:** [optional] The version to tag the commit.
 
 # Behavior Notes
 The action will remove the destionation folder before recreating it to place any copied files in it.
