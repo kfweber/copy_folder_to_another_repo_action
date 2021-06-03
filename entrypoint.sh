@@ -34,7 +34,7 @@ then
 fi
 
 echo "Copying contents to git repo"
-if [ ! -z "$INPUT_DESTINATION_FOLDER" ]
+if [ -z "$INPUT_DESTINATION_FOLDER" ]
 then
 TARGET_DIR=$(mktemp -d)
 mv "$CLONE_DIR/.git" "$TARGET_DIR"
