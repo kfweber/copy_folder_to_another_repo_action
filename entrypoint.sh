@@ -34,9 +34,18 @@ then
 fi
 
 echo "Copying contents to git repo"
+if [ -z "$INPUT_DESTINATION_FOLDER" ]
+then
+TARGET_DIR=$(mktemp -d)
+mv "$CLONE_DIR/.git" "$TARGET_DIR"
+mv "$CLONE_DIR/README.md" "$TARGET_DIR"
+cp -a $INPUT_SOURCE_FOLDER/. $TARGET_DIR
+cd "$TARGET_DIR"
+else
 rm -rf $CLONE_DIR/$INPUT_DESTINATION_FOLDER/
 cp -a $INPUT_SOURCE_FOLDER/. $CLONE_DIR/$INPUT_DESTINATION_FOLDER/
 cd "$CLONE_DIR"
+fi
 
 echo "Adding git commit"
 git add .
